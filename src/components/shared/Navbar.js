@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { FiLogOut } from "react-icons/fi";
 
 export default class Navbar extends Component {
   render() {
@@ -34,16 +35,21 @@ export default class Navbar extends Component {
 
             <div className="navbar-end">
               <div className="navbar-item">
+                <p className="control has-text-grey-dark">
+                  <span>John Doe</span>
+                </p>
+              </div>
+              <div className="navbar-item">
                 <div className="field is-grouped">
                   <p className="control">
                     <a
-                      className="button is-primary"
+                      className="button is-danger"
                       href="https://github.com/jgthms/bulma/releases/download/0.8.2/bulma-0.8.2.zip"
                     >
                       <span className="icon">
-                        <i className="fas fa-download"></i>
+                        <FiLogOut />
                       </span>
-                      <span>Login</span>
+                      <span>Logout</span>
                     </a>
                   </p>
                 </div>

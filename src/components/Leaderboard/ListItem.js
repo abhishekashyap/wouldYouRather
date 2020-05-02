@@ -40,7 +40,7 @@ export default class ListItem extends Component {
             </div>
             <div className="media-right">
               <div className="control">
-                <span className="tag is-danger is-large">9</span>
+                <span className="tag is-primary is-large">9</span>
               </div>
             </div>
           </article>

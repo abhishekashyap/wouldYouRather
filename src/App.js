@@ -6,16 +6,18 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Add from "./pages/Add";
 import Leaderboard from "./pages/Leaderboard";
+import AnswerQuestion from "./components/AnswerQuestion/AnswerQuestion";
 
 function App() {
   return (
     <div className="container">
       <Navbar />
       <Header />
-      {/* <ToggleQuestionBar />
+      <ToggleQuestionBar />
       <Login />
       <Home />
-      <Add /> */}
+      <AnswerQuestion />
+      <Add />
       <Leaderboard />
     </div>
   );
