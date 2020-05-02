@@ -13,22 +13,28 @@ import { connect } from "react-redux";
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
+    console.log("Authed user", this.props.authedUser);
   }
   render() {
     return (
       <Router>
         <LoadingBar style={{ backgroundColor: "#1A91DA", height: "5px" }} />
-        {/* Show navbar if the user is authed */}
         <Navbar />
         <Header />
         <Route path="/" component={Home} exact />
-        <Route path="/login" component={Login} exact />
         <Route path="/leaderboard" component={Leaderboard} exact />
         <Route path="/add" component={Add} exact />
         <Route path="/question/:id" component={Add} />
+        <Route path="/login" component={Login} exact />
       </Router>
     );
   }
 }
 
-export default connect()(App);
+function mapStateToProps({ authedUser }) {
+  return {
+    authedUser,
+  };
+}
+
+export default connect(mapStateToProps)(App);

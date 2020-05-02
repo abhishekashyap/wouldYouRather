@@ -19,6 +19,7 @@ class Login extends Component {
       alert("Please select the user!");
     } else {
       this.props.dispatch(setAuthedUser(this.state.selectedUser));
+      this.props.history.push("/");
     }
   };
 
