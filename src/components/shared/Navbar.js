@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 
 export default class Navbar extends Component {
@@ -22,15 +23,15 @@ export default class Navbar extends Component {
 
           <div id="navbarExampleTransparentExample" className="navbar-menu">
             <div className="navbar-start">
-              <a className="navbar-item" href="https://bulma.io/">
+              <NavLink className="navbar-item" to="/">
                 Home
-              </a>
-              <a className="navbar-item" href="https://bulma.io/">
+              </NavLink>
+              <NavLink className="navbar-item" to="/add">
                 New Question
-              </a>
-              <a className="navbar-item" href="https://bulma.io/">
+              </NavLink>
+              <NavLink className="navbar-item" to="/leaderboard">
                 Leaderboard
-              </a>
+              </NavLink>
             </div>
 
             <div className="navbar-end">
