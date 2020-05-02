@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class Login extends Component {
   render() {
     return (
-      <>
+      <div className='section has-background-light	'>
         <p class="title is-2 is-center">Login</p>
         <div class="field has-addons">
           <div class="control is-expanded">
@@ -21,7 +21,7 @@ export default class Login extends Component {
             </button>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }
