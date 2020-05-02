@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
+import { connect } from "react-redux";
 
-export default class Navbar extends Component {
+class Navbar extends Component {
   render() {
     return (
       <div>
@@ -37,7 +38,7 @@ export default class Navbar extends Component {
             <div className="navbar-end">
               <div className="navbar-item">
                 <p className="control has-text-grey-dark">
-                  <span>John Doe</span>
+                  <span>{this.props.authedUser}</span>
                 </p>
               </div>
               <div className="navbar-item">
@@ -62,3 +63,9 @@ export default class Navbar extends Component {
     );
   }
 }
+
+function mapStateToProps({ authedUser }) {
+  return { authedUser };
+}
+
+export default connect(mapStateToProps)(Navbar);

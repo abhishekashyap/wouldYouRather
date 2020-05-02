@@ -22,8 +22,8 @@ export default class Question extends Component {
             </div>
             <div className="tile is-ancestor">
               <div className="tile is-parent">
-                <div class="tile is-child box has-background-success">
-                  <div class="control">
+                <div className="tile is-child box has-background-success">
+                  <div className="control">
                     <p className="has-text-weight-semibold has-text-white has-text-centered is-uppercase	is-uppercase">
                       {this.props.ques.optionOne.text}
                     </p>
@@ -31,8 +31,8 @@ export default class Question extends Component {
                 </div>
               </div>
               <div className="tile is-parent">
-                <div class="tile is-child box has-background-info">
-                  <div class="control">
+                <div className="tile is-child box has-background-info">
+                  <div className="control">
                     <p className="has-text-weight-semibold has-text-white has-text-centered	is-uppercase">
                       {this.props.ques.optionTwo.text}
                     </p>
