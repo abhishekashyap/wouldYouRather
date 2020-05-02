@@ -5,16 +5,18 @@ import ToggleQuestionBar from "./components/shared/ToggleQuestionBar";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Add from "./pages/Add";
+import Leaderboard from "./pages/Leaderboard";
 
 function App() {
   return (
     <div className="container">
       <Navbar />
       <Header />
-      {/* <ToggleQuestionBar /> */}
-      {/* <Login /> */}
-      {/* <Home /> */}
-      <Add />
+      {/* <ToggleQuestionBar />
+      <Login />
+      <Home />
+      <Add /> */}
+      <Leaderboard />
     </div>
   );
 }

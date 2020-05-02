@@ -7,7 +7,7 @@ export default class NewQuestion extends Component {
         <div className="box">
           <article className="media">
             <div className="media-content">
-              <div className="title is-3">Add a new question</div>
+              <div className="title is-3">Add a new question&nbsp;</div>
               <div className="content">
                 <div>
                   <div className="subtitle">Would you rather :</div>

@@ -4,7 +4,7 @@ export default class Login extends Component {
   render() {
     return (
       <div className="section has-background-light">
-        <p className="title is-2 is-center has-text-grey-dark">Login</p>
+        <p className="title is-2 has-text-grey-dark">Login</p>
         <div className="field has-addons">
           <div className="control is-expanded">
             <div className="select is-fullwidth">
