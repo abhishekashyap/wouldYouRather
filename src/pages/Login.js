@@ -4,10 +4,10 @@ export default class Login extends Component {
   render() {
     return (
       <div className="section has-background-light">
-        <p class="title is-2 is-center has-text-grey-dark">Login</p>
-        <div class="field has-addons">
-          <div class="control is-expanded">
-            <div class="select is-fullwidth">
+        <p className="title is-2 is-center has-text-grey-dark">Login</p>
+        <div className="field has-addons">
+          <div className="control is-expanded">
+            <div className="select is-fullwidth">
               <select name="user">
                 <option value="Argentina">Argentina</option>
                 <option value="Bolivia">Bolivia</option>
@@ -15,8 +15,8 @@ export default class Login extends Component {
               </select>
             </div>
           </div>
-          <div class="control">
-            <button type="submit" class="button is-primary">
+          <div className="control">
+            <button type="submit" className="button is-primary">
               Login
             </button>
           </div>

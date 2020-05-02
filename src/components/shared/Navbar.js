@@ -4,13 +4,13 @@ export default class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav class="navbar is-transparent">
-          <div class="navbar-brand">
-            <a class="navbar-item" href="https://github.com/abhishekashyap">
+        <nav className="navbar is-transparent">
+          <div className="navbar-brand">
+            <a className="navbar-item" href="https://github.com/abhishekashyap">
               <img src="Logo.png" alt="abhishekashyap" width="28" height="28" />
             </a>
             <div
-              class="navbar-burger burger"
+              className="navbar-burger burger"
               data-target="navbarExampleTransparentExample"
             >
               <span></span>
@@ -19,29 +19,29 @@ export default class Navbar extends Component {
             </div>
           </div>
 
-          <div id="navbarExampleTransparentExample" class="navbar-menu">
-            <div class="navbar-start">
-              <a class="navbar-item" href="https://bulma.io/">
+          <div id="navbarExampleTransparentExample" className="navbar-menu">
+            <div className="navbar-start">
+              <a className="navbar-item" href="https://bulma.io/">
                 Home
               </a>
-              <a class="navbar-item" href="https://bulma.io/">
+              <a className="navbar-item" href="https://bulma.io/">
                 New Question
               </a>
-              <a class="navbar-item" href="https://bulma.io/">
+              <a className="navbar-item" href="https://bulma.io/">
                 Leaderboard
               </a>
             </div>
 
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <div class="field is-grouped">
-                  <p class="control">
+            <div className="navbar-end">
+              <div className="navbar-item">
+                <div className="field is-grouped">
+                  <p className="control">
                     <a
-                      class="button is-primary"
+                      className="button is-primary"
                       href="https://github.com/jgthms/bulma/releases/download/0.8.2/bulma-0.8.2.zip"
                     >
-                      <span class="icon">
-                        <i class="fas fa-download"></i>
+                      <span className="icon">
+                        <i className="fas fa-download"></i>
                       </span>
                       <span>Login</span>
                     </a>

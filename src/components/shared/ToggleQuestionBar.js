@@ -3,9 +3,9 @@ import React, { Component } from "react";
 export default class ToggleQuestionBar extends Component {
   render() {
     return (
-      <div class="tabs is-centered">
+      <div className="tabs is-centered">
         <ul>
-          <li class="is-active">
+          <li className="is-active">
             <a href="#a">Unanswered</a>
           </li>
           <li>
