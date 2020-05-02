@@ -6,7 +6,7 @@ import ToggleQuestionBar from "../components/shared/ToggleQuestionBar";
 
 class Home extends Component {
   render() {
-    console.log(this.props);
+    console.log("Home component", this.props);
     return (
       <>
         <ToggleQuestionBar />
@@ -21,10 +21,11 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps({ questions, users }) {
+function mapStateToProps({ questions, users, authedUser }) {
   return {
     questions,
     users,
+    authedUser,
   };
 }
 
