@@ -11,10 +11,9 @@ class Home extends Component {
       <>
         <ToggleQuestionBar />
         <div className="section">
-          <Question />
-          <Question />
-          <Question />
-          <Question />
+          {Object.keys(this.props.questions).map((questionId, index) => (
+            <Question key={index} ques={this.props.questions[questionId]} />
+          ))}
         </div>
       </>
     );

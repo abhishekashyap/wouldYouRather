@@ -16,14 +16,30 @@ export default class Question extends Component {
                 </figure>
               </div>
               <div className="media-content">
-                <p className="title is-4">John Smith</p>
+                <p className="title is-4">@{this.props.ques.author}</p>
                 <p className="subtitle is-6">asks, would you rather</p>
               </div>
             </div>
-            <p className="title">
-              “There are two hard things in computer science: cache
-              invalidation, naming things, and off-by-one errors.”
-            </p>
+            <div className="tile is-ancestor">
+              <div className="tile is-parent">
+                <div class="tile is-child box has-background-success">
+                  <div class="control">
+                    <p className="has-text-weight-semibold has-text-white has-text-centered is-uppercase	is-uppercase">
+                      {this.props.ques.optionOne.text}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="tile is-parent">
+                <div class="tile is-child box has-background-info">
+                  <div class="control">
+                    <p className="has-text-weight-semibold has-text-white has-text-centered	is-uppercase">
+                      {this.props.ques.optionTwo.text}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <footer className="card-footer">
             <p className="card-footer-item">
