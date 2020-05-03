@@ -34,7 +34,11 @@ class Home extends Component {
                   question.optionTwo.votes.includes("sarahedo")
               )
               .map((question, index) => (
-                <Question key={index} ques={question} />
+                <Question
+                  key={index}
+                  ques={question}
+                  section={this.state.section}
+                />
               ))}
           </div>
         ) : (
@@ -50,7 +54,11 @@ class Home extends Component {
                   )
               )
               .map((question, index) => (
-                <Question key={index} ques={question} />
+                <Question
+                  key={index}
+                  ques={question}
+                  section={this.state.section}
+                />
               ))}
           </div>
         )}

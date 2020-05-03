@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 class AnswerQuestion extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
+    
   };
   render() {
     return (

@@ -46,7 +46,9 @@ class Question extends Component {
             <p className="card-footer-item">
               <span>
                 <Link to={`/question/${this.props.ques.id}`}>
-                  Answer question!
+                  {this.props.section === "unanswered"
+                    ? "Answer question!"
+                    : "View results"}
                 </Link>
               </span>
             </p>

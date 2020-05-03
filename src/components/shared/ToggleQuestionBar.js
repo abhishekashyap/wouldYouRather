@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 
 export default class ToggleQuestionBar extends Component {
@@ -11,7 +12,7 @@ export default class ToggleQuestionBar extends Component {
               this.props.section === "unanswered" ? "is-active" : null
             }`}
           >
-            <a href="#unanswered">Unanswered</a>
+            <a>Unanswered</a>
           </li>
           <li
             onClick={() => this.props.changeSection("answered")}
@@ -19,7 +20,7 @@ export default class ToggleQuestionBar extends Component {
               this.props.section === "answered" ? "is-active" : null
             }`}
           >
-            <a href="#answered">Answered</a>
+            <a>Answered</a>
           </li>
         </ul>
       </div>
