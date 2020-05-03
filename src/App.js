@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { handleInitialData } from "./actions/shared";
+import { connect } from "react-redux";
 import LoadingBar from "react-redux-loading-bar";
+
 import Navbar from "./components/shared/Navbar";
 import Header from "./components/shared/Header";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Add from "./pages/Add";
 import Leaderboard from "./pages/Leaderboard";
-import { connect } from "react-redux";
+import AnswerPage from "./pages/AnswerPage";
 
 class App extends Component {
   componentDidMount() {
@@ -24,7 +26,7 @@ class App extends Component {
         <Route path="/" component={Home} exact />
         <Route path="/leaderboard" component={Leaderboard} exact />
         <Route path="/add" component={Add} exact />
-        <Route path="/question/:id" component={Add} />
+        <Route path="/question/:id" component={AnswerPage} />
         <Route path="/login" component={Login} exact />
       </Router>
     );

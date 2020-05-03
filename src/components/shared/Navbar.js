@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 class Navbar extends Component {
   render() {
-    return (
+    return this.props.authedUser ? (
       <div>
         <nav className="navbar is-transparent">
           <div className="navbar-brand">
@@ -38,7 +38,7 @@ class Navbar extends Component {
             <div className="navbar-end">
               <div className="navbar-item">
                 <p className="control has-text-grey-dark">
-                  <span>{this.props.authedUser}</span>
+                  <span>@{this.props.authedUser}</span>
                 </p>
               </div>
               <div className="navbar-item">
@@ -60,7 +60,7 @@ class Navbar extends Component {
           </div>
         </nav>
       </div>
-    );
+    ) : null;
   }
 }
 

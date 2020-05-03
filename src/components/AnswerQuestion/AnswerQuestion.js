@@ -1,6 +1,13 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default class AnswerQuestion extends Component {
+class AnswerQuestion extends Component {
+  componentDidUpdate() {
+    console.log("CHECK", this.props.question);
+  }
+  handleSubmit = (e) => {
+    e.preventDefault();
+  };
   render() {
     return (
       <div className="section">
@@ -16,27 +23,37 @@ export default class AnswerQuestion extends Component {
                 </figure>
               </div>
               <div className="media-content">
-                <p className="title is-4">John Smith</p>
+                <p className="title is-4">{this.props.question.author}</p>
                 <p className="subtitle is-6">asks, would you rather</p>
               </div>
             </div>
             <div className="tile is-ancestor">
               <div className="tile is-parent">
-                <div class="tile is-child box has-background-info">
-                  <div class="control">
-                    <label class="radio">
+                <div className="tile is-child box has-background-info">
+                  <div className="control">
+                    <label className="radio">
                       <input type="radio" name="answer" />
-                      <strong className="has-text-light">&nbsp;OPTION 1</strong>
+                      <strong className="has-text-light is-uppercase">
+                        &nbsp;
+                        {this.props.question.optionOne
+                          ? this.props.question.optionOne.text
+                          : null}
+                      </strong>
                     </label>
                   </div>
                 </div>
               </div>
               <div className="tile is-parent">
-                <div class="tile is-child box has-background-info">
-                  <div class="control">
-                    <label class="radio">
+                <div className="tile is-child box has-background-info">
+                  <div className="control">
+                    <label className="radio">
                       <input type="radio" name="answer" />
-                      <strong className="has-text-light">&nbsp;OPTION 2</strong>
+                      <strong className="has-text-light is-uppercase">
+                        &nbsp;
+                        {this.props.question.optionTwo
+                          ? this.props.question.optionTwo.text
+                          : null}
+                      </strong>
                     </label>
                   </div>
                 </div>
@@ -46,7 +63,11 @@ export default class AnswerQuestion extends Component {
           <footer className="card-footer">
             <div className="card-footer-item">
               <div className="control">
-                <button type="submit" className="button is-primary">
+                <button
+                  type="submit"
+                  className="button is-primary"
+                  onSubmit={this.handleSubmit}
+                >
                   Submit
                 </button>
               </div>
@@ -57,3 +78,12 @@ export default class AnswerQuestion extends Component {
     );
   }
 }
+
+function mapStateToProps({ authedUser, questions }, props) {
+  return {
+    authedUser,
+    question: !questions[props.id] ? [] : questions[props.id],
+  };
+}
+
+export default connect(mapStateToProps)(AnswerQuestion);

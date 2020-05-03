@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-export default class Question extends Component {
+class Question extends Component {
   render() {
     return (
       <div className="section">
@@ -44,7 +45,9 @@ export default class Question extends Component {
           <footer className="card-footer">
             <p className="card-footer-item">
               <span>
-                <a href="#answer">Answer question!</a>
+                <Link to={`/question/${this.props.ques.id}`}>
+                  Answer question!
+                </Link>
               </span>
             </p>
           </footer>
@@ -53,3 +56,5 @@ export default class Question extends Component {
     );
   }
 }
+
+export default Question;
