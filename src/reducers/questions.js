@@ -12,6 +12,7 @@ export default function setTweets(state = {}, action) {
       return {
         ...state,
         ...action.questions,
+        [action.question.id]: action.question,
       };
 
     default:
