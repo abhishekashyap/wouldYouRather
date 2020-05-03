@@ -5,7 +5,7 @@ export default class Add extends Component {
   render() {
     return (
       <div className="section">
-        <NewQuestion />
+        <NewQuestion routerProps={this.props} />
       </div>
     );
   }

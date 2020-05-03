@@ -39,6 +39,7 @@ class NewQuestion extends Component {
               optionOneText: "",
               optionTwoText: "",
             });
+            this.props.routerProps.history.push("/");
           }
         )
       );

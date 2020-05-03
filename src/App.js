@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Add from "./pages/Add";
 import Leaderboard from "./pages/Leaderboard";
 import AnswerPage from "./pages/AnswerPage";
+import Result from "./pages/Result";
 
 class App extends Component {
   componentDidMount() {
@@ -27,6 +28,7 @@ class App extends Component {
         <Route path="/leaderboard" component={Leaderboard} exact />
         <Route path="/add" component={Add} exact />
         <Route path="/question/:id" component={AnswerPage} />
+        <Route path="/question/:id/result" component={Result} />
         <Route path="/login" component={Login} exact />
       </Router>
     );
