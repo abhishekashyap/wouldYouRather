@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class AnswerQuestion extends Component {
-  componentDidUpdate() {
-    console.log("CHECK", this.props.question);
-  }
   handleSubmit = (e) => {
     e.preventDefault();
   };

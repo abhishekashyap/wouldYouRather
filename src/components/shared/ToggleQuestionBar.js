@@ -6,12 +6,13 @@ export default class ToggleQuestionBar extends Component {
       <div className="tabs is-centered">
         <ul>
           <li className="is-active">
-            <a href="#a">Unanswered</a>
+            <a href="#unanswered">Unanswered</a>
           </li>
           <li>
-            <a href="#a">Answered</a>
+            <a href="#answered">Answered</a>
           </li>
         </ul>
+        )
       </div>
     );
   }
