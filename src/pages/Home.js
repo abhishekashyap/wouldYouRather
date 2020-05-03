@@ -8,9 +8,14 @@ class Home extends Component {
   componentDidUpdate() {
     console.log(
       "HOME COMPO",
-      Object.keys(this.props.questions)
-        .map((questionId) => this.props.questions[questionId])
-        .filter((question) => question.optionOne.votes.includes("sarahedo"))
+      this.props.questions
+      // Object.keys(this.props.questions)
+        // .map((questionId) => this.props.questions[questionId])
+        // .filter(
+        //   (question) =>
+        //     question.optionOne.votes.includes("sarahedo") ||
+        //     question.optionTwo.votes.includes("sarahedo")
+        // )
     );
   }
   state = {
@@ -22,7 +27,20 @@ class Home extends Component {
         <ToggleQuestionBar section={this.state.section} />
         {/* If (option 1 || option 2) includes authedUser then question = answered else unanswered */}
         <div className="section">
-          unanswered
+          Answered
+          {Object.keys(this.props.questions)
+            .map((questionId) => this.props.questions[questionId])
+            .filter(
+              (question) =>
+                question.optionOne.votes.includes("sarahedo") ||
+                question.optionTwo.votes.includes("sarahedo")
+            )
+            .map((question, index) => (
+              <Question key={index} ques={question} />
+            ))}
+        </div>
+        <div className="section">
+          Unanswered
           {Object.keys(this.props.questions).map((questionId, index) => (
             <Question key={index} ques={this.props.questions[questionId]} />
           ))}
