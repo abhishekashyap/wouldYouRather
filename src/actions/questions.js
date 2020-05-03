@@ -11,18 +11,22 @@ function addQuestion(question) {
   };
 }
 
-export function handleAddQuestion(text, replyingTo) {
+export function handleAddQuestion(optionOneText, optionTwoText, callback) {
   return (dispatch, getState) => {
-    const { authedUser } = getState;
-
     dispatch(showLoading());
 
-    return saveQuestion({
-      text,
+    const { authedUser } = getState();
+
+    saveQuestion({
+      optionOneText,
+      optionTwoText,
       author: authedUser,
     })
-      .then((question) => dispatch(addQuestion(question)))
-      .then(() => dispatch(hideLoading()));
+      .then((question) => {
+        dispatch(addQuestion(question));
+        dispatch(hideLoading());
+      })
+      .then(callback);
   };
 }
 

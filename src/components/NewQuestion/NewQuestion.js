@@ -1,33 +1,48 @@
 import React, { Component } from "react";
+import { handleAddQuestion } from "../../actions/questions";
+import { connect } from "react-redux";
 
-export default class NewQuestion extends Component {
+class NewQuestion extends Component {
   state = {
-    optionOne: "",
-    optionTwo: "",
+    optionOneText: "",
+    optionTwoText: "",
   };
 
   handleOptionOne = (e) => {
-    const optionOne = e.target.value;
+    const optionOneText = e.target.value;
     this.setState({
-      optionOne,
+      optionOneText,
     });
   };
 
   handleOptionTwo = (e) => {
-    const optionTwo = e.target.value;
+    const optionTwoText = e.target.value;
     this.setState({
-      optionTwo,
+      optionTwoText,
     });
   };
 
   handleAddQuestion = (e) => {
     e.preventDefault();
-    if (!(this.state.optionOne && this.state.optionTwo)) {
+    if (!(this.state.optionOneText && this.state.optionTwoText)) {
       // For empty options
       alert("Please enter valid values");
     } else {
-      console.log(this.state.optionOne);
-      console.log(this.state.optionTwo);
+      console.log(this.state.optionOneText);
+      console.log(this.state.optionTwoText);
+      this.props.dispatch(
+        handleAddQuestion(
+          this.state.optionOneText,
+          this.state.optionTwoText,
+          () => {
+            this.setState({
+              optionOneText: "",
+              optionTwoText: "",
+            });
+          }
+        )
+      );
+      // Redirect the user
     }
   };
 
@@ -86,3 +101,5 @@ export default class NewQuestion extends Component {
     );
   }
 }
+
+export default connect()(NewQuestion);
