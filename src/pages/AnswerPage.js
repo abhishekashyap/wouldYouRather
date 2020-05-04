@@ -8,7 +8,10 @@ class AnswerPage extends Component {
   render() {
     return (
       <div className="section">
-        <AnswerQuestion question={this.props.question} />
+        <AnswerQuestion
+          question={this.props.question}
+          routerProps={this.props}
+        />
       </div>
     );
   }

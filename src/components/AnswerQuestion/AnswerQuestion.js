@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { handleAddQuestionAnswer } from "../../actions/questions";
+import { connect } from "react-redux";
 class AnswerQuestion extends Component {
   state = {
     selected: "",
@@ -14,6 +16,21 @@ class AnswerQuestion extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log("SELECTED VALUE", this.state.selected);
+    if (!this.state.selected) {
+      // For empty options
+      alert("Please select a valid answer!");
+    } else {
+      this.props.dispatch(
+        handleAddQuestionAnswer(
+          this.props.question.id,
+          this.state.selected,
+          () => {
+            // Redirect the user
+            this.props.routerProps.history.push("/");
+          }
+        )
+      );
+    }
   };
 
   render() {
@@ -96,4 +113,4 @@ class AnswerQuestion extends Component {
   }
 }
 
-export default AnswerQuestion;
+export default connect()(AnswerQuestion);

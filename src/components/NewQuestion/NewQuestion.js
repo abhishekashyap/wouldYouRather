@@ -39,11 +39,11 @@ class NewQuestion extends Component {
               optionOneText: "",
               optionTwoText: "",
             });
+            // Redirect the user
             this.props.routerProps.history.push("/");
           }
         )
       );
-      // Redirect the user
     }
   };
 

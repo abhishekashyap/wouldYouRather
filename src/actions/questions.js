@@ -28,7 +28,7 @@ function addQuestionAnswer(authedUser, questionId, selectedOption) {
   };
 }
 
-export function handleAddQuestionAnswer(questionId, selectedOption) {
+export function handleAddQuestionAnswer(questionId, selectedOption, callback) {
   return (dispatch, getState) => {
     dispatch(showLoading());
 
@@ -38,10 +38,12 @@ export function handleAddQuestionAnswer(questionId, selectedOption) {
       authedUser,
       qid: questionId,
       answer: selectedOption,
-    }).then(() => {
-      dispatch(addQuestionAnswer(authedUser, questionId, selectedOption));
-      dispatch(hideLoading());
-    });
+    })
+      .then(() => {
+        dispatch(addQuestionAnswer(authedUser, questionId, selectedOption));
+        dispatch(hideLoading());
+      })
+      .then(callback);
   };
 }
 
