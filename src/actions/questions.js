@@ -1,13 +1,47 @@
-import { saveQuestion } from "../utils/API";
+import { saveQuestion, saveQuestionAnswer } from "../utils/API";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 
 export const SET_QUESTIONS = "SET_QUESTIONS";
 export const ADD_QUESTION = "ADD_QUESTION";
+export const ADD_QUESTION_ANSWER = "ADD_QUESTION_ANSWER";
+
+export function setQuestions(questions) {
+  return {
+    type: SET_QUESTIONS,
+    questions,
+  };
+}
 
 function addQuestion(question) {
   return {
     type: ADD_QUESTION,
     question,
+  };
+}
+
+function addQuestionAnswer(authedUser, questionId, selectedOption) {
+  return {
+    type: ADD_QUESTION_ANSWER,
+    authedUser,
+    questionId,
+    selectedOption,
+  };
+}
+
+export function handleAddQuestionAnswer(questionId, selectedOption) {
+  return (dispatch, getState) => {
+    dispatch(showLoading());
+
+    const { authedUser } = getState();
+
+    saveQuestionAnswer({
+      authedUser,
+      qid: questionId,
+      answer: selectedOption,
+    }).then(() => {
+      dispatch(addQuestionAnswer(authedUser, questionId, selectedOption));
+      dispatch(hideLoading());
+    });
   };
 }
 
@@ -27,12 +61,5 @@ export function handleAddQuestion(optionOneText, optionTwoText, callback) {
         dispatch(hideLoading());
       })
       .then(callback);
-  };
-}
-
-export function setQuestions(questions) {
-  return {
-    type: SET_QUESTIONS,
-    questions,
   };
 }

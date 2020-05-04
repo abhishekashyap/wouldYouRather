@@ -1,9 +1,21 @@
 import React, { Component } from "react";
 class AnswerQuestion extends Component {
+  state = {
+    selected: "",
+  };
+
+  handleChange = (e) => {
+    let option = e.target.value;
+    this.setState({
+      selected: option,
+    });
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
-    
+    console.log("SELECTED VALUE", this.state.selected);
   };
+
   render() {
     return (
       <div className="section">
@@ -28,7 +40,12 @@ class AnswerQuestion extends Component {
                 <div className="tile is-child box has-background-info">
                   <div className="control">
                     <label className="radio">
-                      <input type="radio" name="answer" />
+                      <input
+                        type="radio"
+                        name="answer"
+                        value="optionOne"
+                        onChange={this.handleChange}
+                      />
                       <strong className="has-text-light is-uppercase">
                         &nbsp;
                         {this.props.question.optionOne
@@ -43,7 +60,12 @@ class AnswerQuestion extends Component {
                 <div className="tile is-child box has-background-info">
                   <div className="control">
                     <label className="radio">
-                      <input type="radio" name="answer" />
+                      <input
+                        type="radio"
+                        name="answer"
+                        onChange={this.handleChange}
+                        value="optionTwo"
+                      />
                       <strong className="has-text-light is-uppercase">
                         &nbsp;
                         {this.props.question.optionTwo
@@ -60,9 +82,8 @@ class AnswerQuestion extends Component {
             <div className="card-footer-item">
               <div className="control">
                 <button
-                  type="submit"
                   className="button is-primary"
-                  onSubmit={this.handleSubmit}
+                  onClick={this.handleSubmit}
                 >
                   Submit
                 </button>
