@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 class AnswerQuestion extends Component {
   render() {
     return (
-      <div className="section">
+      <div className="section has-text-centered	">
         <div className="card">
           <div className="card-content">
             <div className="media">
@@ -23,7 +23,7 @@ class AnswerQuestion extends Component {
             </div>
             <div className="tile is-ancestor">
               <div className="tile is-parent">
-                <div className="tile is-child box has-background-info">
+                <div className="tile is-child box has-background-info	">
                   <div className="control">
                     <strong className="has-text-light is-uppercase">
                       &nbsp;
@@ -35,50 +35,60 @@ class AnswerQuestion extends Component {
                   <div className="progress-container">
                     &nbsp;
                     {this.props.question.optionOne ? (
-                      <progress
-                        className="progress is-link"
-                        value={this.props.question.optionOne.votes.length}
-                        max={
-                          this.props.question.optionOne.votes.length +
-                          this.props.question.optionTwo.votes.length
-                        }
-                      >
-                        {this.props.question.optionOne.votes.length} /{" "}
-                        {this.props.question.optionOne.votes.length +
-                          this.props.question.optionTwo.votes.length}{" "}
-                        Votes
-                      </progress>
+                      <>
+                        <progress
+                          className="progress is-success"
+                          value={this.props.question.optionOne.votes.length}
+                          max={
+                            this.props.question.optionOne.votes.length +
+                            this.props.question.optionTwo.votes.length
+                          }
+                        >
+                          {this.props.question.optionOne.votes.length} /{" "}
+                          {this.props.question.optionOne.votes.length +
+                            this.props.question.optionTwo.votes.length}{" "}
+                          Votes
+                        </progress>
+                        <div className="has-text-white-ter">
+                          {this.props.question.optionOne.votes.length} /{" "}
+                          {this.props.question.optionOne.votes.length +
+                            this.props.question.optionTwo.votes.length}{" "}
+                          Votes
+                        </div>
+                      </>
                     ) : null}
                   </div>
                 </div>
               </div>
               <div className="tile is-parent">
-                <div className="tile is-child box has-background-info">
+                <div className="tile is-child box has-background-info	">
                   <div className="control">
                     <strong className="has-text-light is-uppercase">
                       &nbsp;
                       {this.props.question.optionTwo
                         ? this.props.question.optionTwo.text
                         : null}
-                      {/* X/X Votes */}
                     </strong>
                   </div>
                   <div className="progress-container">
                     &nbsp;
                     {this.props.question.optionOne ? (
-                      <progress
-                        className="progress is-link"
-                        value={this.props.question.optionTwo.votes.length}
-                        max={
-                          this.props.question.optionOne.votes.length +
-                          this.props.question.optionTwo.votes.length
-                        }
-                      >
-                        {this.props.question.optionTwo.votes.length} /{" "}
-                        {this.props.question.optionOne.votes.length +
-                          this.props.question.optionTwo.votes.length}{" "}
-                        Votes
-                      </progress>
+                      <>
+                        <progress
+                          className="progress is-success"
+                          value={this.props.question.optionTwo.votes.length}
+                          max={
+                            this.props.question.optionOne.votes.length +
+                            this.props.question.optionTwo.votes.length
+                          }
+                        ></progress>
+                        <div className="has-text-white-ter">
+                          {this.props.question.optionTwo.votes.length} /{" "}
+                          {this.props.question.optionOne.votes.length +
+                            this.props.question.optionTwo.votes.length}{" "}
+                          Votes
+                        </div>
+                      </>
                     ) : null}
                   </div>
                 </div>
