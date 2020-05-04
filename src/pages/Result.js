@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class AnswerQuestion extends Component {
-  handleSubmit = (e) => {
-    e.preventDefault();
-  };
   render() {
     return (
       <div className="section">
@@ -28,50 +25,66 @@ class AnswerQuestion extends Component {
               <div className="tile is-parent">
                 <div className="tile is-child box has-background-info">
                   <div className="control">
-                    <label className="radio">
-                      <input type="radio" name="answer" />
-                      <strong className="has-text-light is-uppercase">
-                        &nbsp;
-                        {this.props.question.optionOne
-                          ? this.props.question.optionOne.text
-                          : null}
-                        X/X Votes
-                      </strong>
-                    </label>
+                    <strong className="has-text-light is-uppercase">
+                      &nbsp;
+                      {this.props.question.optionOne
+                        ? this.props.question.optionOne.text
+                        : null}
+                    </strong>
+                  </div>
+                  <div className="progress-container">
+                    &nbsp;
+                    {this.props.question.optionOne ? (
+                      <progress
+                        className="progress is-link"
+                        value={this.props.question.optionOne.votes.length}
+                        max={
+                          this.props.question.optionOne.votes.length +
+                          this.props.question.optionTwo.votes.length
+                        }
+                      >
+                        {this.props.question.optionOne.votes.length} /{" "}
+                        {this.props.question.optionOne.votes.length +
+                          this.props.question.optionTwo.votes.length}{" "}
+                        Votes
+                      </progress>
+                    ) : null}
                   </div>
                 </div>
               </div>
               <div className="tile is-parent">
                 <div className="tile is-child box has-background-info">
                   <div className="control">
-                    <label className="radio">
-                      <input type="radio" name="answer" />
-                      <strong className="has-text-light is-uppercase">
-                        &nbsp;
-                        {this.props.question.optionTwo
-                          ? this.props.question.optionTwo.text
-                          : null}
-                        X/X Votes
-                      </strong>
-                    </label>
+                    <strong className="has-text-light is-uppercase">
+                      &nbsp;
+                      {this.props.question.optionTwo
+                        ? this.props.question.optionTwo.text
+                        : null}
+                      {/* X/X Votes */}
+                    </strong>
+                  </div>
+                  <div className="progress-container">
+                    &nbsp;
+                    {this.props.question.optionOne ? (
+                      <progress
+                        className="progress is-link"
+                        value={this.props.question.optionTwo.votes.length}
+                        max={
+                          this.props.question.optionOne.votes.length +
+                          this.props.question.optionTwo.votes.length
+                        }
+                      >
+                        {this.props.question.optionTwo.votes.length} /{" "}
+                        {this.props.question.optionOne.votes.length +
+                          this.props.question.optionTwo.votes.length}{" "}
+                        Votes
+                      </progress>
+                    ) : null}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <footer className="card-footer">
-            <div className="card-footer-item">
-              <div className="control">
-                <button
-                  type="submit"
-                  className="button is-primary"
-                  onSubmit={this.handleSubmit}
-                >
-                  Submit
-                </button>
-              </div>
-            </div>
-          </footer>
         </div>
       </div>
     );
@@ -81,7 +94,15 @@ class AnswerQuestion extends Component {
 function mapStateToProps({ authedUser, questions }, props) {
   return {
     authedUser,
-    question: !questions[props.id] ? [] : questions[props.id],
+    question: !questions[props.match.params.id]
+      ? []
+      : questions[props.match.params.id],
+    // optionOneVotes: !questions[props.match.params.id]
+    //   ? []
+    //   : questions[props.match.params.id].optionOne,
+    // optionTwoVotes: !questions[props.match.params.id]
+    //   ? []
+    //   : questions[props.match.params.id].optionTwo,
   };
 }
 
