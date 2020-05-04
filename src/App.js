@@ -16,7 +16,6 @@ import Result from "./pages/Result";
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
-    console.log("Authed user", this.props.authedUser);
   }
   render() {
     return (

@@ -25,13 +25,12 @@ class Home extends Component {
         {/* If (option 1 || option 2) includes authedUser then question = answered else unanswered */}
         {this.state.section === "answered" ? (
           <div className="section">
-            Answered
             {Object.keys(this.props.questions)
               .map((questionId) => this.props.questions[questionId])
               .filter(
                 (question) =>
-                  question.optionOne.votes.includes("sarahedo") ||
-                  question.optionTwo.votes.includes("sarahedo")
+                  question.optionOne.votes.includes(this.props.authedUser) ||
+                  question.optionTwo.votes.includes(this.props.authedUser)
               )
               .map((question, index) => (
                 <Question
@@ -43,14 +42,13 @@ class Home extends Component {
           </div>
         ) : (
           <div className="section">
-            Unanswered
             {Object.keys(this.props.questions)
               .map((questionId) => this.props.questions[questionId])
               .filter(
                 (question) =>
                   !(
-                    question.optionOne.votes.includes("sarahedo") ||
-                    question.optionTwo.votes.includes("sarahedo")
+                    question.optionOne.votes.includes(this.props.authedUser) ||
+                    question.optionTwo.votes.includes(this.props.authedUser)
                   )
               )
               .map((question, index) => (

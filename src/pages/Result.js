@@ -107,12 +107,6 @@ function mapStateToProps({ authedUser, questions }, props) {
     question: !questions[props.match.params.id]
       ? []
       : questions[props.match.params.id],
-    // optionOneVotes: !questions[props.match.params.id]
-    //   ? []
-    //   : questions[props.match.params.id].optionOne,
-    // optionTwoVotes: !questions[props.match.params.id]
-    //   ? []
-    //   : questions[props.match.params.id].optionTwo,
   };
 }
 
