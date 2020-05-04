@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-
 class AnswerQuestion extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
@@ -77,11 +75,4 @@ class AnswerQuestion extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, questions }, props) {
-  return {
-    authedUser,
-    question: !questions[props.id] ? [] : questions[props.id],
-  };
-}
-
-export default connect(mapStateToProps)(AnswerQuestion);
+export default AnswerQuestion;
