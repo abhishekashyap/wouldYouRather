@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { handleInitialData } from "./actions/shared";
 import { connect } from "react-redux";
 import LoadingBar from "react-redux-loading-bar";
@@ -13,6 +13,7 @@ import Leaderboard from "./pages/Leaderboard";
 import AnswerPage from "./pages/AnswerPage";
 import Result from "./pages/Result";
 import PrivateRoute from "./components/PrivateRoute";
+import error from "./pages/error";
 
 class App extends Component {
   componentDidMount() {
@@ -53,7 +54,9 @@ class App extends Component {
           authedUser={this.props.authedUser}
           component={Result}
         />
+        <Route path="/404" component={error} exact />
         <Route path="/login" component={Login} exact />
+        <Redirect to="/404" />
       </Router>
     );
   }
