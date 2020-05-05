@@ -1,5 +1,6 @@
 import { saveQuestion, saveQuestionAnswer } from "../utils/API";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
+import { addUserQuestion, addUserQuestionAnswer } from "./users";
 
 export const SET_QUESTIONS = "SET_QUESTIONS";
 export const ADD_QUESTION = "ADD_QUESTION";
@@ -41,6 +42,7 @@ export function handleAddQuestionAnswer(questionId, selectedOption, callback) {
     })
       .then(() => {
         dispatch(addQuestionAnswer(authedUser, questionId, selectedOption));
+        dispatch(addUserQuestionAnswer(authedUser, questionId, selectedOption));
         dispatch(hideLoading());
       })
       .then(callback);
@@ -60,6 +62,7 @@ export function handleAddQuestion(optionOneText, optionTwoText, callback) {
     })
       .then((question) => {
         dispatch(addQuestion(question));
+        dispatch(addUserQuestion(question));
         dispatch(hideLoading());
       })
       .then(callback);
