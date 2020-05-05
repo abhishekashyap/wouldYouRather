@@ -32,6 +32,7 @@ class Home extends Component {
                   question.optionOne.votes.includes(this.props.authedUser) ||
                   question.optionTwo.votes.includes(this.props.authedUser)
               )
+              .sort((a, b) => b.timestamp - a.timestamp)
               .map((question, index) => (
                 <Question
                   key={index}
@@ -52,6 +53,7 @@ class Home extends Component {
                     question.optionTwo.votes.includes(this.props.authedUser)
                   )
               )
+              .sort((a, b) => b.timestamp - a.timestamp)
               .map((question, index) => (
                 <Question
                   key={index}
