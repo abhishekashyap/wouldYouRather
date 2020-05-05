@@ -1,9 +1,15 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import { connect } from "react-redux";
+import { setAuthedUser } from "../../actions/authedUser";
 
 class Navbar extends Component {
+  handleLogout = (e) => {
+    e.preventDefault();
+    this.props.dispatch(setAuthedUser(""));
+  };
+
   render() {
     return this.props.authedUser ? (
       <div>
@@ -44,15 +50,15 @@ class Navbar extends Component {
               <div className="navbar-item">
                 <div className="field is-grouped">
                   <p className="control">
-                    <a
+                    <Link
                       className="button is-danger"
-                      href="https://github.com/jgthms/bulma/releases/download/0.8.2/bulma-0.8.2.zip"
+                      onClick={this.handleLogout}
                     >
                       <span className="icon">
                         <FiLogOut />
                       </span>
                       <span>Logout</span>
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>
