@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-export default class error extends Component {
+export default class Error extends Component {
   render() {
     return (
       <div className="section has-background-white-bis">

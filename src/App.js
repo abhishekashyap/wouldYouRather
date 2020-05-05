@@ -12,7 +12,7 @@ import Add from "./pages/Add";
 import Leaderboard from "./pages/Leaderboard";
 import AnswerPage from "./pages/AnswerPage";
 import PrivateRoute from "./components/PrivateRoute";
-import error from "./pages/error";
+import error from "./pages/Error";
 
 class App extends Component {
   componentDidMount() {
@@ -49,11 +49,6 @@ class App extends Component {
             authedUser={this.props.authedUser}
             exact
           />
-          {/* <PrivateRoute
-            path="/question/:id/result"
-            authedUser={this.props.authedUser}
-            component={Result}
-          /> */}
           <Route path="/login" component={Login} exact />
           <Route component={error} />
         </Switch>
