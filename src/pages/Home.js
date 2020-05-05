@@ -36,6 +36,7 @@ class Home extends Component {
                 <Question
                   key={index}
                   ques={question}
+                  user={this.props.users[question.author]}
                   section={this.state.section}
                 />
               ))}
@@ -55,6 +56,7 @@ class Home extends Component {
                 <Question
                   key={index}
                   ques={question}
+                  user={this.props.users[question.author]}
                   section={this.state.section}
                 />
               ))}
