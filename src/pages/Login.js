@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
+import { Redirect } from "react-router-dom";
 
 class Login extends Component {
   state = {
@@ -19,11 +20,16 @@ class Login extends Component {
       alert("Please select the user!");
     } else {
       this.props.dispatch(setAuthedUser(this.state.selectedUser));
-      this.props.history.push("/");
     }
   };
 
   render() {
+    const { from } = this.props.location.state || { from: { pathname: "/" } };
+
+    if (this.props.authedUser) {
+      return <Redirect to={from} />;
+    }
+
     return (
       <div className="section has-background-white-bis">
         <p className="title is-2 has-text-grey-dark">Login</p>
@@ -55,8 +61,9 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, authedUser }) {
   return {
+    authedUser,
     users,
   };
 }
