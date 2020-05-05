@@ -18,7 +18,7 @@ class Navbar extends Component {
           <div className="navbar-brand">
             <a
               className="navbar-item"
-              href="https://github.com/abhishekashyap/would-you-rather"
+              href="https://github.com/abhishekashyap/wouldYouRather"
             >
               <img
                 src="Brand.png"

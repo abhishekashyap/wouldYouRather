@@ -1,8 +1,12 @@
 # WouldYouRather Project
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/edb94d50-1c0a-4854-9e13-7af134cb2341/deploy-status)](https://app.netlify.com/sites/gallant-volhard-496c02/deploys)
+
 WouldYouRather is choice based game, that allows users to choose betweent THIS or THAT.
 
 This is Udacity's second React project which implements Redux.
+
+[See the live version here](wouldyourather-ak.netlify.app)
 
 ## Getting Started
 
