@@ -3,17 +3,6 @@ import { connect } from "react-redux";
 import { FiCheck } from "react-icons/fi";
 
 class AnswerQuestion extends Component {
-  componentDidMount() {
-    console.log("AUTHED USER", this.props.authedUser);
-    console.log(
-      "OPTION ONE",
-      this.props.question.optionOne.votes.includes(this.props.authedUser)
-    );
-    console.log(
-      "OPTION TWO",
-      this.props.question.optionTwo.votes.includes(this.props.authedUser)
-    );
-  }
   render() {
     return (
       <div className="section has-text-centered	">
@@ -23,8 +12,9 @@ class AnswerQuestion extends Component {
               <div className="media-left">
                 <figure className="image is-48x48">
                   <img
-                    src="https://bulma.io/images/placeholders/96x96.png"
+                    src={this.props.users[this.props.question.author].avatarURL}
                     alt="Placeholder"
+                    className="is-rounded"
                   />
                 </figure>
               </div>
@@ -130,9 +120,10 @@ class AnswerQuestion extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, questions }, props) {
+function mapStateToProps({ authedUser, users, questions }, props) {
   return {
     authedUser,
+    users,
     question: !questions[props.match.params.id]
       ? []
       : questions[props.match.params.id],

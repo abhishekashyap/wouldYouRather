@@ -44,8 +44,9 @@ class AnswerQuestion extends Component {
               <div className="media-left">
                 <figure className="image is-48x48">
                   <img
-                    src="https://bulma.io/images/placeholders/96x96.png"
+                    src={this.props.users[this.props.question.author].avatarURL}
                     alt="Placeholder"
+                    className="is-rounded"
                   />
                 </figure>
               </div>

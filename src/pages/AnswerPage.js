@@ -10,6 +10,7 @@ class AnswerPage extends Component {
       <div className="section">
         <AnswerQuestion
           question={this.props.question}
+          users={this.props.users}
           routerProps={this.props}
         />
       </div>
@@ -17,9 +18,10 @@ class AnswerPage extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, questions }, props) {
+function mapStateToProps({ authedUser, users, questions }, props) {
   return {
     authedUser,
+    users,
     question: !questions[props.match.params.id]
       ? []
       : questions[props.match.params.id],
