@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { handleAddQuestionAnswer } from "../../actions/questions";
+import { handleAddQuestionAnswer } from "../actions/questions";
 import { connect } from "react-redux";
 class AnswerQuestion extends Component {
   state = {
@@ -26,9 +26,9 @@ class AnswerQuestion extends Component {
           this.state.selected,
           () => {
             // Redirect the user
-            this.props.routerProps.history.push(
-              `/question/${this.props.question.id}/result`
-            );
+            // this.props.routerProps.history.push(
+            //   `/question/${this.props.question.id}/result`
+            // );
           }
         )
       );

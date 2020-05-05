@@ -46,15 +46,11 @@ class Question extends Component {
           <footer className="card-footer">
             <p className="card-footer-item">
               <span>
-                {this.props.section === "unanswered" ? (
-                  <Link to={`/question/${this.props.ques.id}`}>
-                    Answer question!
-                  </Link>
-                ) : (
-                  <Link to={`/question/${this.props.ques.id}/result`}>
-                    View Results!
-                  </Link>
-                )}
+                <Link to={`/question/${this.props.ques.id}`}>
+                  {this.props.section === "unanswered"
+                    ? "Answer question!"
+                    : "View Results!"}
+                </Link>
               </span>
             </p>
           </footer>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { FiCheck } from "react-icons/fi";
 
 class AnswerQuestion extends Component {
@@ -120,14 +119,4 @@ class AnswerQuestion extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, users, questions }, props) {
-  return {
-    authedUser,
-    users,
-    question: !questions[props.match.params.id]
-      ? []
-      : questions[props.match.params.id],
-  };
-}
-
-export default connect(mapStateToProps)(AnswerQuestion);
+export default AnswerQuestion;

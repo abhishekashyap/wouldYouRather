@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { handleAddQuestion } from "../../actions/questions";
+import { handleAddQuestion } from "../actions/questions";
 import { connect } from "react-redux";
 
 class NewQuestion extends Component {

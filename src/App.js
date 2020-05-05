@@ -11,7 +11,6 @@ import Home from "./pages/Home";
 import Add from "./pages/Add";
 import Leaderboard from "./pages/Leaderboard";
 import AnswerPage from "./pages/AnswerPage";
-import Result from "./pages/Result";
 import PrivateRoute from "./components/PrivateRoute";
 import error from "./pages/error";
 
@@ -50,11 +49,11 @@ class App extends Component {
             authedUser={this.props.authedUser}
             exact
           />
-          <PrivateRoute
+          {/* <PrivateRoute
             path="/question/:id/result"
             authedUser={this.props.authedUser}
             component={Result}
-          />
+          /> */}
           <Route path="/login" component={Login} exact />
           <Route component={error} />
         </Switch>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import Question from "../components/Home/Question";
+import Question from "../components/Question";
 import ToggleQuestionBar from "../components/shared/ToggleQuestionBar";
 
 class Home extends Component {
