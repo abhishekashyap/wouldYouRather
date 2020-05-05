@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../../actions/authedUser";
@@ -50,15 +51,12 @@ class Navbar extends Component {
               <div className="navbar-item">
                 <div className="field is-grouped">
                   <p className="control">
-                    <Link
-                      className="button is-danger"
-                      onClick={this.handleLogout}
-                    >
+                    <a className="button is-danger" onClick={this.handleLogout}>
                       <span className="icon">
                         <FiLogOut />
                       </span>
                       <span>Logout</span>
-                    </Link>
+                    </a>
                   </p>
                 </div>
               </div>

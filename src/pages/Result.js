@@ -1,7 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { FiCheck } from "react-icons/fi";
 
 class AnswerQuestion extends Component {
+  componentDidMount() {
+    console.log("AUTHED USER", this.props.authedUser);
+    console.log(
+      "OPTION ONE",
+      this.props.question.optionOne.votes.includes(this.props.authedUser)
+    );
+    console.log(
+      "OPTION TWO",
+      this.props.question.optionTwo.votes.includes(this.props.authedUser)
+    );
+  }
   render() {
     return (
       <div className="section has-text-centered	">
@@ -21,77 +33,99 @@ class AnswerQuestion extends Component {
                 <p className="subtitle is-6">asks, would you rather</p>
               </div>
             </div>
-            <div className="tile is-ancestor">
-              <div className="tile is-parent">
-                <div className="tile is-child box has-background-info	">
-                  <div className="control">
-                    <strong className="has-text-light is-uppercase">
+            {this.props.question && this.props.authedUser && (
+              <div className="tile is-ancestor">
+                <div className="tile is-parent">
+                  <div
+                    className={`tile is-child box ${
+                      this.props.question.optionOne.votes.includes(
+                        this.props.authedUser
+                      )
+                        ? "has-background-link"
+                        : "has-background-info"
+                    }`}
+                  >
+                    <div className="control">
+                      <strong className="has-text-light is-uppercase">
+                        &nbsp;
+                        {this.props.question.optionOne.text}
+                        {this.props.question.optionOne.votes.includes(
+                          this.props.authedUser
+                        ) ? (
+                          <FiCheck className="is-pulled-right is-size-3" />
+                        ) : (
+                          ""
+                        )}
+                      </strong>
+                    </div>
+                    <div className="progress-container">
                       &nbsp;
-                      {this.props.question.optionOne &&
-                        this.props.question.optionOne.text}
-                    </strong>
+                      <progress
+                        className="progress is-success"
+                        value={this.props.question.optionOne.votes.length}
+                        max={
+                          this.props.question.optionOne.votes.length +
+                          this.props.question.optionTwo.votes.length
+                        }
+                      >
+                        {this.props.question.optionOne.votes.length} /
+                        {this.props.question.optionOne.votes.length +
+                          this.props.question.optionTwo.votes.length}
+                        Votes
+                      </progress>
+                      <div className="has-text-white-ter">
+                        {this.props.question.optionOne.votes.length} /
+                        {this.props.question.optionOne.votes.length +
+                          this.props.question.optionTwo.votes.length}
+                        Votes
+                      </div>
+                    </div>
                   </div>
-                  <div className="progress-container">
-                    &nbsp;
-                    {this.props.question.optionOne && (
-                      <>
-                        <progress
-                          className="progress is-success"
-                          value={this.props.question.optionOne.votes.length}
-                          max={
-                            this.props.question.optionOne.votes.length +
-                            this.props.question.optionTwo.votes.length
-                          }
-                        >
-                          {this.props.question.optionOne.votes.length} /{" "}
-                          {this.props.question.optionOne.votes.length +
-                            this.props.question.optionTwo.votes.length}{" "}
-                          Votes
-                        </progress>
-                        <div className="has-text-white-ter">
-                          {this.props.question.optionOne.votes.length} /{" "}
-                          {this.props.question.optionOne.votes.length +
-                            this.props.question.optionTwo.votes.length}{" "}
-                          Votes
-                        </div>
-                      </>
-                    )}
+                </div>
+                <div className="tile is-parent">
+                  <div
+                    className={`tile is-child box ${
+                      this.props.question.optionTwo.votes.includes(
+                        this.props.authedUser
+                      )
+                        ? "has-background-link"
+                        : "has-background-info"
+                    }`}
+                  >
+                    <div className="control">
+                      <strong className="has-text-light is-uppercase">
+                        &nbsp;
+                        {this.props.question.optionTwo.text}
+                        {this.props.question.optionTwo.votes.includes(
+                          this.props.authedUser
+                        ) ? (
+                          <FiCheck className="is-pulled-right is-size-3" />
+                        ) : (
+                          ""
+                        )}
+                      </strong>
+                    </div>
+                    <div className="progress-container">
+                      &nbsp;
+                      <progress
+                        className="progress is-success"
+                        value={this.props.question.optionTwo.votes.length}
+                        max={
+                          this.props.question.optionOne.votes.length +
+                          this.props.question.optionTwo.votes.length
+                        }
+                      ></progress>
+                      <div className="has-text-white-ter">
+                        {this.props.question.optionTwo.votes.length} /
+                        {this.props.question.optionOne.votes.length +
+                          this.props.question.optionTwo.votes.length}
+                        Votes
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="tile is-parent">
-                <div className="tile is-child box has-background-info	">
-                  <div className="control">
-                    <strong className="has-text-light is-uppercase">
-                      &nbsp;
-                      {this.props.question.optionTwo &&
-                        this.props.question.optionTwo.text}
-                    </strong>
-                  </div>
-                  <div className="progress-container">
-                    &nbsp;
-                    {this.props.question.optionOne && (
-                      <>
-                        <progress
-                          className="progress is-success"
-                          value={this.props.question.optionTwo.votes.length}
-                          max={
-                            this.props.question.optionOne.votes.length +
-                            this.props.question.optionTwo.votes.length
-                          }
-                        ></progress>
-                        <div className="has-text-white-ter">
-                          {this.props.question.optionTwo.votes.length} /{" "}
-                          {this.props.question.optionOne.votes.length +
-                            this.props.question.optionTwo.votes.length}{" "}
-                          Votes
-                        </div>
-                      </>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

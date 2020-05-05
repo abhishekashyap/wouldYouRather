@@ -26,7 +26,9 @@ class AnswerQuestion extends Component {
           this.state.selected,
           () => {
             // Redirect the user
-            this.props.routerProps.history.push("/");
+            this.props.routerProps.history.push(
+              `/question/${this.props.question.id}/result`
+            );
           }
         )
       );
