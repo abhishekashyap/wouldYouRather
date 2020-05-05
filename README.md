@@ -6,7 +6,7 @@ WouldYouRather is choice based game, that allows users to choose betweent THIS o
 
 This is Udacity's second React project which implements Redux.
 
-[See the live version here](wouldyourather-ak.netlify.app)
+[See the live version here](https://wouldyourather-ak.netlify.app)
 
 ## Getting Started
 
