@@ -67,17 +67,13 @@ class AnswerQuestion extends Component {
                           this.props.question.optionOne.votes.length +
                           this.props.question.optionTwo.votes.length
                         }
-                      >
-                        {this.props.question.optionOne.votes.length} /
-                        {this.props.question.optionOne.votes.length +
-                          this.props.question.optionTwo.votes.length}
-                        Votes
-                      </progress>
+                      ></progress>
                       <div className="has-text-white-ter">
-                        {this.props.question.optionOne.votes.length} /
-                        {this.props.question.optionOne.votes.length +
-                          this.props.question.optionTwo.votes.length}
-                        Votes
+                        {(this.props.question.optionOne.votes.length /
+                          (this.props.question.optionOne.votes.length +
+                            this.props.question.optionTwo.votes.length)) *
+                          100}
+                        % Votes
                       </div>
                     </div>
                   </div>
@@ -116,10 +112,11 @@ class AnswerQuestion extends Component {
                         }
                       ></progress>
                       <div className="has-text-white-ter">
-                        {this.props.question.optionTwo.votes.length} /
-                        {this.props.question.optionOne.votes.length +
-                          this.props.question.optionTwo.votes.length}
-                        Votes
+                        {(this.props.question.optionTwo.votes.length /
+                          (this.props.question.optionOne.votes.length +
+                            this.props.question.optionTwo.votes.length)) *
+                          100}
+                        % Votes
                       </div>
                     </div>
                   </div>

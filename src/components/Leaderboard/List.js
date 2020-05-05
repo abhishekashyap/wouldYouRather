@@ -10,10 +10,7 @@ class List extends Component {
     return (
       <div>
         {Object.keys(this.props.users).map((userId, index) => (
-          <ListItem
-            key={index}
-            user={this.props.users[userId]}
-          />
+          <ListItem key={index} user={this.props.users[userId]} />
         ))}
       </div>
     );
