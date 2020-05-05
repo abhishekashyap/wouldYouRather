@@ -27,14 +27,13 @@ class AnswerQuestion extends Component {
                   <div className="control">
                     <strong className="has-text-light is-uppercase">
                       &nbsp;
-                      {this.props.question.optionOne
-                        ? this.props.question.optionOne.text
-                        : null}
+                      {this.props.question.optionOne &&
+                        this.props.question.optionOne.text}
                     </strong>
                   </div>
                   <div className="progress-container">
                     &nbsp;
-                    {this.props.question.optionOne ? (
+                    {this.props.question.optionOne && (
                       <>
                         <progress
                           className="progress is-success"
@@ -56,7 +55,7 @@ class AnswerQuestion extends Component {
                           Votes
                         </div>
                       </>
-                    ) : null}
+                    )}
                   </div>
                 </div>
               </div>
@@ -65,14 +64,13 @@ class AnswerQuestion extends Component {
                   <div className="control">
                     <strong className="has-text-light is-uppercase">
                       &nbsp;
-                      {this.props.question.optionTwo
-                        ? this.props.question.optionTwo.text
-                        : null}
+                      {this.props.question.optionTwo &&
+                        this.props.question.optionTwo.text}
                     </strong>
                   </div>
                   <div className="progress-container">
                     &nbsp;
-                    {this.props.question.optionOne ? (
+                    {this.props.question.optionOne && (
                       <>
                         <progress
                           className="progress is-success"
@@ -89,7 +87,7 @@ class AnswerQuestion extends Component {
                           Votes
                         </div>
                       </>
-                    ) : null}
+                    )}
                   </div>
                 </div>
               </div>

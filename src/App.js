@@ -12,6 +12,7 @@ import Add from "./pages/Add";
 import Leaderboard from "./pages/Leaderboard";
 import AnswerPage from "./pages/AnswerPage";
 import Result from "./pages/Result";
+import PrivateRoute from "./components/PrivateRoute";
 
 class App extends Component {
   componentDidMount() {
@@ -23,11 +24,35 @@ class App extends Component {
         <LoadingBar style={{ backgroundColor: "#1A91DA", height: "5px" }} />
         <Navbar />
         <Header />
-        <Route path="/" component={Home} exact />
-        <Route path="/leaderboard" component={Leaderboard} exact />
-        <Route path="/add" component={Add} exact />
-        <Route path="/question/:id" component={AnswerPage} exact />
-        <Route path="/question/:id/result" component={Result} />
+        <PrivateRoute
+          path="/"
+          component={Home}
+          authedUser={this.props.authedUser}
+          exact
+        />
+        <PrivateRoute
+          path="/leaderboard"
+          component={Leaderboard}
+          authedUser={this.props.authedUser}
+          exact
+        />
+        <PrivateRoute
+          path="/add"
+          component={Add}
+          authedUser={this.props.authedUser}
+          exact
+        />
+        <PrivateRoute
+          path="/question/:id"
+          component={AnswerPage}
+          authedUser={this.props.authedUser}
+          exact
+        />
+        <PrivateRoute
+          path="/question/:id/result"
+          authedUser={this.props.authedUser}
+          component={Result}
+        />
         <Route path="/login" component={Login} exact />
       </Router>
     );
