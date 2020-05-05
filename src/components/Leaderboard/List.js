@@ -3,15 +3,20 @@ import ListItem from "./ListItem";
 import { connect } from "react-redux";
 
 class List extends Component {
-  componentDidUpdate() {
-    console.log("List users", this.props.users);
-  }
   render() {
     return (
       <div>
-        {Object.keys(this.props.users).map((userId, index) => (
-          <ListItem key={index} user={this.props.users[userId]} />
-        ))}
+        {Object.keys(this.props.users)
+          .map((userId) => this.props.users[userId])
+          .sort(
+            (a, b) =>
+              b.questions.length +
+              Object.keys(b.answers).length -
+              (a.questions.length + Object.keys(a.answers).length)
+          )
+          .map((user, index) => (
+            <ListItem key={index} user={user} />
+          ))}
       </div>
     );
   }
