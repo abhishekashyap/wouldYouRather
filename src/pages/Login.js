@@ -25,7 +25,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="section has-background-light">
+      <div className="section has-background-white-bis">
         <p className="title is-2 has-text-grey-dark">Login</p>
         <div className="field has-addons">
           <div className="control is-expanded">
