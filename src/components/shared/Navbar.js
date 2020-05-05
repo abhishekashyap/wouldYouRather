@@ -16,7 +16,10 @@ class Navbar extends Component {
       <div>
         <nav className="navbar is-transparent">
           <div className="navbar-brand">
-            <a className="navbar-item" href="https://github.com/abhishekashyap">
+            <a
+              className="navbar-item"
+              href="https://github.com/abhishekashyap/would-you-rather"
+            >
               <img
                 src="Brand.png"
                 alt="abhishekashyap"
