@@ -50,7 +50,7 @@ class App extends Component {
             exact
           />
           <Route path="/login" component={Login} exact />
-          <Route component={error} />
+          <Route component={Error} />
         </Switch>
       </Router>
     );
