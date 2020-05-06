@@ -12,7 +12,7 @@ import Add from "./pages/Add";
 import Leaderboard from "./pages/Leaderboard";
 import AnswerPage from "./pages/AnswerPage";
 import PrivateRoute from "./components/PrivateRoute";
-import error from "./pages/Error";
+import Error from "./pages/Error";
 
 class App extends Component {
   componentDidMount() {
