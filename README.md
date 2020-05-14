@@ -30,9 +30,11 @@ To start the app use
 yarn start
 ```
 
-<!-- ## Screenshots
+## Screenshots
 
-![Homepage](screenshots/homepage.png "Landing page") -->
+![Home](screenshots/low-res/home.png "Landing page")
+![Answer](screenshots/low-res/answer.png "Answer page")
+![Leaderboard](screenshots/low-res/home.png "Leaderboard page")
 
 ## Built With
 
