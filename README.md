@@ -34,7 +34,7 @@ yarn start
 
 ![Home](screenshots/low-res/home.png "Landing page")
 ![Answer](screenshots/low-res/answer.png "Answer page")
-![Leaderboard](screenshots/low-res/home.png "Leaderboard page")
+![Leaderboard](screenshots/low-res/leaderboard.png "Leaderboard page")
 
 ## Built With
 
