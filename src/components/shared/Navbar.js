@@ -6,9 +6,19 @@ import { connect } from "react-redux";
 import { setAuthedUser } from "../../actions/authedUser";
 
 class Navbar extends Component {
+  state = {
+    active: false,
+  };
+
   handleLogout = (e) => {
     e.preventDefault();
     this.props.dispatch(setAuthedUser(""));
+  };
+
+  toggle = () => {
+    this.setState({
+      active: !this.state.active,
+    });
   };
 
   render() {
@@ -28,8 +38,11 @@ class Navbar extends Component {
               />
             </a>
             <div
-              className="navbar-burger burger"
-              data-target="navbarExampleTransparentExample"
+              className={`navbar-burger burger ${
+                this.state.active ? "is-active" : ""
+              }`}
+              data-target="navMenu"
+              onClick={this.toggle}
             >
               <span></span>
               <span></span>
@@ -37,7 +50,9 @@ class Navbar extends Component {
             </div>
           </div>
 
-          <div id="navbarExampleTransparentExample" className="navbar-menu">
+          <div
+            className={`navbar-menu ${this.state.active ? "is-active" : ""}`}
+          >
             <div className="navbar-start">
               <NavLink className="navbar-item" to="/">
                 Home
