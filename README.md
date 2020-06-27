@@ -32,9 +32,11 @@ yarn start
 
 ## Screenshots
 
-![Home](screenshots/low-res/home.png "Landing page")
-![Answer](screenshots/low-res/answer.png "Answer page")
-![Leaderboard](screenshots/low-res/leaderboard.png "Leaderboard page")
+<p align="center">
+  <img src="screenshots/low-res/home.png" alt="Landing page"/>
+  <img src="screenshots/low-res/answer.png" alt="Answer page"/>
+  <img src="screenshots/low-res/leaderboard.png " alt="Leaderboard page"/>
+</p>
 
 ## Built With
 
